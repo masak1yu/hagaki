@@ -11,7 +11,7 @@ class Tweet < ApplicationRecord
     public_id = user_id.to_s + Time.current.to_i.to_s
     create_image(content, public_id)
     pic = upload_image(public_id)
-    Tweet.create(user_id: user_id, content: content, public_id: public_id, pic: pic.to_s)
+    Tweet.create(user_id: user_id, content: content, public_id: public_id, pic: pic)
   end
 
   def update_with_image(user_id, params)
