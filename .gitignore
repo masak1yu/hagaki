@@ -23,6 +23,5 @@
 .envrc/public/packs
 /node_modules
 .envrc
-/bin/*
 
 .DS_Store
