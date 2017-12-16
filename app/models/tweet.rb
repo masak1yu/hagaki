@@ -1,5 +1,3 @@
-require 'RMagick'
-
 class Tweet < ApplicationRecord
   include Magick
 
@@ -19,6 +17,7 @@ class Tweet < ApplicationRecord
     create_image(content, self.public_id)
     pic = upload_image(public_id)
     self.content = content
+    self.pic = pic.to_json
     self.save!
   end
 
