@@ -7,6 +7,8 @@ class TweetsController < ApplicationController
 
   def show
     @tweet = current_user.tweets.find(params[:id])
+    pic = JSON.parse(@tweet.pic)
+    @image_url = pic["url"] if pic
   end
 
   def new
