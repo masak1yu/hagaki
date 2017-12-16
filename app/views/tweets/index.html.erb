@@ -1,0 +1,10 @@
+<table class="table table-striped">
+<thead>
+<tbody>
+  <% @tweets.each do |tweet| %>
+  <tr>
+    <td><%= link_to "#{tweet.content}", tweet_path(tweet) %></td>
+  </tr>
+  <% end %>
+</tbody>
+</table>

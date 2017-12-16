@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h1>Tweet</h1>
+</div>
+
+<%= form_with(model: @tweet, class: 'form-horizontal') do |f| %>
+  <% if @tweet.errors.any? %>
+    <div classi="alert alert-danger">
+      <ul>
+      <% @tweet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_area :content, class: 'form-control', row: 10 %>
+  </div>
+
+  <%= f.submit 'Update', class: 'btn btn-default', data: { disable_with: '作成中…' } %>
+<% end %>
