@@ -17,6 +17,7 @@ class Tweet < ApplicationRecord
   def update_with_image(user_id, params)
     content = params[:content]
     create_image(content, self.public_id)
+    pic = upload_image(public_id)
     self.content = content
     self.save!
   end
