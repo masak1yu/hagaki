@@ -2,7 +2,7 @@ class Tweet < ApplicationRecord
   include Magick
 
   belongs_to :user
-  validates :content, length: {maximum: 280}, presence: true
+  validates :content, length: {maximum: 200}, presence: true
 
   def create_with_image(user_id, params)
     content = params[:content]
@@ -34,7 +34,7 @@ class Tweet < ApplicationRecord
     draw = Draw.new
     draw.font = Rails.root.join('.fonts/ipaexg.ttf').to_s
     draw.pointsize = 24
-    draw.annotate(image, 590, 380, 50, 100, content)
+    draw.annotate(image, 590, 360, 50, 120, content)
     image.write("/tmp/#{public_id}.png")
   end
 
