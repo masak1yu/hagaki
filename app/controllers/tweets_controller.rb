@@ -48,7 +48,7 @@ class TweetsController < ApplicationController
     @tweet = current_user.tweets.find(params[:id])
     pic = JSON.parse(@tweet.pic)
     @image_url = pic["url"] if pic
-    render :layout => "image"
+    render :image, layout: false
   end
 
   private
