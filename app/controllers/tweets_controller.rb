@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :authenticate
+  before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @tweets = current_user.tweets.all
