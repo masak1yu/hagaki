@@ -34,7 +34,7 @@ class Tweet < ApplicationRecord
     draw = Draw.new
     draw.font = Rails.root.join('.fonts/ipaexg.ttf').to_s
     draw.pointsize = 24
-    draw.annotate(image, 640, 480, 50, 50, content)
+    draw.annotate(image, 590, 380, 50, 100, content)
     image.write("/tmp/#{public_id}.png")
   end
 
