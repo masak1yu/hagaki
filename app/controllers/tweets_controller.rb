@@ -45,6 +45,7 @@ class TweetsController < ApplicationController
   end
 
   def image
+    @user = current_user
     @tweet = current_user.tweets.find(params[:id])
     pic = JSON.parse(@tweet.pic)
     @image_url = pic["url"] if pic
