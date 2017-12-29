@@ -1,6 +1,5 @@
 class TweetsController < ApplicationController
   before_action :authenticate
-  layout "image", only: :image
 
   def index
     @tweets = current_user.tweets.all
@@ -49,7 +48,7 @@ class TweetsController < ApplicationController
     @tweet = current_user.tweets.find(params[:id])
     pic = JSON.parse(@tweet.pic)
     @image_url = pic["url"] if pic
-    render
+    render :layout => "image"
   end
 
   private
