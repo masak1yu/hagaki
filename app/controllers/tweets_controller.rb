@@ -3,11 +3,11 @@ class TweetsController < ApplicationController
   layout "image", only: :image
 
   def index
-    @tweets = Tweet.all
+    @tweets = current_user.tweets.all
   end
 
   def show
-    @tweet = Tweet.find(params[:id])
+    @tweet = current_user.tweets.find(params[:id])
     return redirect_to tweets_path if @tweet.pic.nil?
     pic = JSON.parse(@tweet.pic)
     @image_url = pic["url"] if pic
@@ -46,7 +46,7 @@ class TweetsController < ApplicationController
   end
 
   def image
-    @tweet = Tweet.find(params[:id])
+    @tweet = current_user.tweets.find(params[:id])
     pic = JSON.parse(@tweet.pic)
     @image_url = pic["url"] if pic
     render
