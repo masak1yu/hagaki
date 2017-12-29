@@ -18,7 +18,7 @@
     <% if logged_in? %>
       <%= link_to 'edit', edit_tweet_path(@tweet), class: 'btn btn-info btn-lg btn-block' %>
       <%= link_to 'delete', tweet_path(@tweet), class: 'btn btn-danger btn-lg btn-block', method: :delete, data: { confirm: '本当に削除しますか？' } %>
-      <a href="https://twitter.com/share" class="twitter-share-button" data-text="<%=image_tweet_path %>" data-size="large">Tweet</a>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="<%=image_tweet_url %>" data-size="large">Tweet</a>
     <% end %>
   </div>
 </div>
