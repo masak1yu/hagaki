@@ -1,12 +1,14 @@
 class TweetsController < ApplicationController
   before_action :authenticate
+  layout "image", only: :image
 
   def index
-    @tweets = current_user.tweets.all
+    @tweets = Tweet.all
   end
 
   def show
-    @tweet = current_user.tweets.find(params[:id])
+    @tweet = Tweet.find(params[:id])
+    return redirect_to tweets_path if @tweet.pic.nil?
     pic = JSON.parse(@tweet.pic)
     @image_url = pic["url"] if pic
   end
@@ -41,6 +43,13 @@ class TweetsController < ApplicationController
     @tweet = current_user.tweets.find(params[:id])
     @tweet.delete_with_image
     redirect_to root_path, notice: '削除しました'
+  end
+
+  def image
+    @tweet = Tweet.find(params[:id])
+    pic = JSON.parse(@tweet.pic)
+    @image_url = pic["url"] if pic
+    render
   end
 
   private
