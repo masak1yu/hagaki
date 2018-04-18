@@ -1,24 +1,9 @@
-# README
+# Hagaki
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+テキストを画像化してTwitterに投稿するアプリです。
 
-Things you may want to cover:
+[Hagaki](https://hagakipost.herokuapp.com)
 
-* Ruby version
+# Contributors
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [msky](https://github.com/msky026/) - creator, maintainer
